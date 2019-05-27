@@ -1,0 +1,11 @@
+.Login {
+  .Row {
+    &.Buttons {
+      display: flex;
+      .Col {
+        padding: 0 5px;
+        flex: 1;  
+      }
+    }
+  }
+}
