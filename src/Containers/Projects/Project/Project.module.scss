@@ -1,0 +1,39 @@
+.CloseIcon {
+  float: right;
+  cursor: pointer;
+  color: rgb(85, 85, 85);
+  &:hover {
+    color: rgb(204, 107, 107);
+  }
+}
+
+.Row {
+
+  .ToDo {
+    .RemoveTaskIcon {
+      cursor: pointer;
+      text-align: right;
+      float: right;
+      color: rgb(85, 85, 85);
+      &:hover {
+        color: rgb(204, 107, 107);
+      }
+    }
+  }
+
+  .AddTask {
+    margin-top: 20px;
+    form {
+      display: flex;
+      .Col {
+        flex: 1 1 auto;
+        &:nth-child(1) {padding-right: 10px}
+        button {
+          font-size: 0.8em;
+          margin-top: 0;
+          height: 45px;
+        }
+      }
+    }
+  }
+}
