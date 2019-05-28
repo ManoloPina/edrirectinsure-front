@@ -1,18 +1,36 @@
 import * as actionTypes from './ActionTypes';
 
 export const authStart = () => {
-  return {
-    type: actionTypes.AUTH_START
-  }
-}
+  
+  const token = localStorage.getItem('token');
+  const id = localStorage.getItem('id');
+  const email = localStorage.getItem('email');
+  const name = localStorage.getItem('name');
 
-export const authSuccess = (token, id) => {
+  return {
+    type: actionTypes.AUTH_START,
+    token: token,
+    id: id,
+    email: email,
+    name: name
+  }
+};
+
+export const authSuccess = (token, id, email, name) => {
+  
+  localStorage.setItem('token', token);
+  localStorage.setItem('id', id);
+  localStorage.setItem('email', email);
+  localStorage.setItem('name', name);
+  
   return {
     type: actionTypes.AUTH_SUCCESS,
     token: token,
-    id: id
+    id: id,
+    email: email
   }
-}
+
+};
 
 export const logout = () => {
   localStorage.removeItem('token');
@@ -20,4 +38,4 @@ export const logout = () => {
   return {
     type: actionTypes.AUTH_LOGOUT
   }
-}
+};

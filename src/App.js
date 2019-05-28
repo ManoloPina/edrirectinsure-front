@@ -5,11 +5,18 @@ import Header from './Components/Header/Header';
 import { connect } from 'react-redux';
 import SignUp from './Containers/SignUp/SignUp';
 import Login from './Containers/Login/Login';
+import { authStart } from './Store/Actions/AuthAction';
+import Projects from './Containers/Projects/Projects';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
+  }
+
+
+  componentDidMount = () => {
+    this.props.authStart();
   }
 
   render() {
@@ -18,14 +25,16 @@ class App extends Component {
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/sign-up" component={SignUp} />
-        <Redirect to="/login"/>
+        <Redirect to="/login" />
       </Switch>
     );
 
-    if(this.props.isAuthenticated) {
+    if (this.props.isAuthenticated) {
       routes = (
-        //authenticated routes
-        <div></div>
+        <Switch>
+          <Route path="/project" component={Projects} />
+          <Redirect to="/project" />
+        </Switch>
       );
     }
 
@@ -45,9 +54,9 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.token !== null
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   initCart: (cart) => dispatch(initCart(cart))
-// });
+const mapDispatchToProps = dispatch => ({
+  authStart: () => dispatch(authStart())
+});
 
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

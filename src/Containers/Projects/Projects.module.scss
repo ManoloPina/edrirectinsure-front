@@ -1,0 +1,19 @@
+
+.Projects {
+  display: flex;
+  flex-wrap: wrap;
+  .ProjectsItems {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 10px;
+    .Col {
+      width: 47%;
+      padding: 0 10px;
+    }
+  }
+  
+  .CreateProject {
+    flex: 0.5;
+  }
+}

@@ -7,7 +7,7 @@ let Title = (props) => {
   if(props.type === TITLE_TYPES.MAIN) {
     return <h1>{props.children}</h1>
   }else if(props.type === TITLE_TYPES.SUB) {
-    return <h2>props.children</h2>
+    return <h2>{props.children}</h2>
   }
 }
 
